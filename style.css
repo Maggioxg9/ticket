@@ -24,7 +24,30 @@ body {
     	background-repeat: no-repeat;
 }
 
+div#navcontainer { 
+	height:84px;
+	background:#000;
+	background: linear-gradient(to bottom,#000 0%,#232323 10%,#353535 18%,#232323 31%,#4c4c4c 50%,#000 100%);
+	border-bottom:4px solid #eb0303;
+	width:100%;
+}
 
+div#navbar {
+	padding-left: 3px;
+}
+
+img#navlogo {
+	height: auto;
+	vertical-align: bottom;
+	margin-top: -2px;
+}
+div#imgcontainer {
+	width: 23.076923077%;
+	display: inline-block;
+	text-align: center;
+	margin: 10px 0;
+	
+}
 
 .clear{
 	clear:both;

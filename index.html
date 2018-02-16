@@ -13,6 +13,27 @@
 					<img id="navlogo" src="resources/AELogo2.png" />
 				</div>
 			</div>
+			<div id="content">
+				<form action="php_files/submit.php" method="post">
+							<div class="logindetails">
+								<span class="formfont">Username:</span>
+									<input class="textbox" type="text" name="username" size="20" maxlength="20">
+							</div>
+							<div class="logindetails">
+								<span class="formfont">Password:</span>
+									<input class="textbox" type="password" name="password" size="20" maxlength="20">
+							</div>
+							<div>
+								<br>
+							</div>
+							<div class="g-recaptcha" data-sitekey="6Lcw10YUAAAAADBVGhGP9fqX-0WXBQU-54hg5taG"></div>
+							<center><div id="loginbtn">
+								<br>
+								<input id="loginbutton" type="submit" value="Submit">
+							</div><center>
+				</form>
+				<script src='https://www.google.com/recaptcha/api.js'></script>
+			</div>
 			
 		</div>
 			

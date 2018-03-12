@@ -60,7 +60,7 @@ function create_account($name, $instance_url, $access_token) {
     return $id;
 }
 function create_case($name,$phone,$ticketnum, $instance_url, $access_token) {
-    $url = "$instance_url/services/data/v20.0/sobjects/Case/";
+    $url = "$instance_url/services/data/v20.0/sobjects/";
 
     $content = json_encode(array("Subject" => $name, "Description" => $ticketnum));
 
@@ -87,11 +87,7 @@ function create_case($name,$phone,$ticketnum, $instance_url, $access_token) {
 
     $response = json_decode($json_response, true);
 
-    $id = $response["id"];
-
-    echo "New record id $id<br/><br/>";
-
-    return $id;
+    return $response;
 }
 
 function show_account($id, $instance_url, $access_token) {
@@ -182,9 +178,6 @@ function delete_account($id, $instance_url, $access_token) {
             <?php
             $access_token = $_SESSION['access_token'];
             $instance_url = $_SESSION['instance_url'];
-			$url = "$instance_url/services/data/v20.0/sobjects/";
-			echo $url;
-			echo $instance_url;
 			
 
             if (!isset($access_token) || $access_token == "") {
@@ -194,8 +187,11 @@ function delete_account($id, $instance_url, $access_token) {
             if (!isset($instance_url) || $instance_url == "") {
                 die("Error - instance URL missing from session!");
             }
+			$name = "John Doe";
+			$phone = "2606678932";
+			$ticketnum = "182623265292625";
 
-            show_accounts($instance_url, $access_token);
+            create_case($name, $phone, $ticketnum, $instance_url, $access_token);
 
             //$id = create_account("My New Org", $instance_url, $access_token);
 

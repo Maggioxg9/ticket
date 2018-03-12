@@ -80,13 +80,12 @@ function create_case($name,$phone,$ticketnum, $instance_url, $access_token) {
     if ( $status != 201 ) {
         die("Error: call to URL $url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
     }
-    
-    echo "HTTP status $status creating account<br/><br/>";
 
     curl_close($curl);
 
     $response = json_decode($json_response, true);
 
+	header("Location: success.html");
     return $response;
 }
 
@@ -187,9 +186,9 @@ function delete_account($id, $instance_url, $access_token) {
             if (!isset($instance_url) || $instance_url == "") {
                 die("Error - instance URL missing from session!");
             }
-			$name = "John Doe";
-			$phone = "2606678932";
-			$ticketnum = "182623265292625";
+			$name = $_SESSION['name'];
+			$phone = $_SESSION['phone'];
+			$ticketnum = $_SESSION['ticketnum'];
 
             create_case($name, $phone, $ticketnum, $instance_url, $access_token);
 

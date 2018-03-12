@@ -60,7 +60,7 @@ function create_account($name, $instance_url, $access_token) {
     return $id;
 }
 function create_case($name,$phone,$ticketnum, $instance_url, $access_token) {
-    $url = "$instance_url/services/data/v20.0/sobjects/";
+    $url = "$instance_url/services/data/v20.0/sobjects/Case/";
 
     $content = json_encode(array("Subject" => $name, "Description" => $ticketnum));
 

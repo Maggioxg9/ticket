@@ -28,7 +28,8 @@ $payload = base64_encode($jsonC);
 
 // LOAD YOUR PRIVATE KEY FROM A FILE - BE CAREFUL TO PROTECT IT USING
 // FILE PERMISSIONS!
-$private_key = file_get_contents("server.key");
+$private_key = "12352";
+//file_get_contents("server.key");
 
 // This is where openssl_sign will put the signature
 $s = "";

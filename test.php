@@ -17,9 +17,9 @@ $exp = strval(time() + (5 * 60));
 
 //Create JSon Claim/Payload
 $c = array(
-	"iss" => "3MVG9d3kx8wbPieHPn2sTuBe8hPeE4Q4EFvpYEZnm5eue5EZcTt6mKAxQWkxxFumDJAt2rDz0hOu.P0nL70hC", 
+	"iss" => CONSUMER_KEY, 
 	"sub" => "zacharym@accelentertainment.com", 
-	"aud" => "https://test.salesforce.com", 
+	"aud" => LOGIN_BASE_URL, 
 	"exp" => $exp
 );
 
@@ -28,7 +28,35 @@ $payload = base64_encode($jsonC);
 
 // LOAD YOUR PRIVATE KEY FROM A FILE - BE CAREFUL TO PROTECT IT USING
 // FILE PERMISSIONS!
-$private_key = file_get_contents("server.key");
+$private_key = <<<EOD
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEA3FADyTKcNUF9N/4i0vfYQG1JW5u/zakFCr4xiOTMXk9wYKh9
+EQ6mZQvxOInV3Cm/gxDdPBDnnsF/7csBxEQRNt6zusmuUui+ktjpXDAeGMeEKT0F
++56PHzVJhm8gNioSjAhHRJMbbxd+/QQvwdWpU8MgSk4aDj5prhYR1XWmnlOI2WSg
+v9SNbTygE6BMkwpzDi2VCt3V35wNd5oMh9xwSpglQhZMsWW7dZWncMo3lrCFjGLv
+zM0iy6G6Hvm89ERHsikOImvWuW0U9ZIW51NWQx/5wSQDi583b2Nj4coX8c4pcObg
+tek1cuRpIWKZLaN5O1fiW8+cId4QyNihp7evmQIDAQABAoIBAFXwzJlGqdLIei1G
+cJU1Y2E2gIBA0GBMh4/6Q15wShycBm1eLHNj8JrIPs/cTNV2X6OkB3kv6vpt5xZ+
+s3C5ULHDy/6YP+1Np1GnVdjFWGg4JCDmEhhmcNQuuEC9xqX6YYPIkux4KiJ62ume
+IXcOfuAS5Ny3fMiDpjvnlgtbuqRVnjbAjqva2COQf0UKf3HQeBspiPgCD7ANHlr1
+nQw18Hl9BAMKbR5m3ppvEgQ0T3co/KfJ2rGcjy9aBZ+nQM5+AObPalEiwStybDcD
+9Ydbc6rU4zmy6hCxtHcjpaCqC4sEfzJrJp8cJ4oOEDYC266wsBORKnp32rBZTeLm
+9GKFutECgYEA+OpmA/UaCpVRAmbRrBXz31vpRJyqZQi4GLAqZLi9ImQ/OWC8P5BN
+Rnvfu+zN5inUXil1+ofZ1Cn46Hh+sbGIFlHcIf7i7273BuFlnU12XVu+RradVxbm
+hB23sCkUnyxoPTcxOKaGxKYKIWKk1pD+EOSLLOcUjPQhafelP2SGXnUCgYEA4pU2
+0KigdJ6yHnSppsi7g2NDLmslfqg9FX400zM9QiZChAmpmTPXXi5lWvcW98IIKnZ/
+TafQJB/PUmO7CXDUff4nMxcd+WdTHuCcivObJuyF6xeFvqedBWH97UHPQUO6/zZU
+3R66TePwLXLJZjCnn3jNv/GofgnHH6Prn3OMMBUCgYEAvTt9qN6KGKeheYDvP7NE
+vnaiZT3xMHQreOFcqUvkxaOOiTFoi65JgR8lXTnO4n7Ea317qqXizS/Hgfww3SgJ
+PGapQtMCdWJXvExYsviz1o+rnRixjwbi4mexQORKQCRDbt5pthareA5+vxi+Fj0O
+WYtV3yIh9nKWgHf7kbD7kg0CgYEA1fFgfasLPrJtqvYrDnFxJMFAOP8wuyQt8TJm
+vJkgGWq42aWp/x+FFsemKjsu86fBQB79Wxy+Gq3ye2/xthtUeNbWupX0Vn8qa/hX
+t5gHgrxIQs/GGFx5lhCNzE2cXZqPYdUyUktmTI+SQ8ejxRrh22EcnUWX+9JNs2F6
+5OccknUCgYEAiYjACOKBOrzVzBE0Fcp4TAdqkand+LS5S3yzkxqanLWi4YhPY1pY
+On90G718gUPhMupHxY1W5MD3BxvoPW45crE4O4TMGQBkwM3jAtYGkT8z4t5eLmmw
+I3I0MgTYR/kfcTZuSTNakwkiGPGki9ggYHGgWDa85gJAgQHMqT80Z2Q=
+-----END RSA PRIVATE KEY-----
+EOD;
 
 // This is where openssl_sign will put the signature
 $s = "";

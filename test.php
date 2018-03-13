@@ -46,6 +46,8 @@ $secret = base64_encode($s);
 
 $token = $headload . "." . $secret;
 
+echo $token;
+
 $token_url = LOGIN_BASE_URL.'/services/oauth2/token';
 
 $post_fields = array(
@@ -65,5 +67,5 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $token_request_body = curl_exec($ch) 
         or die("Call to get token from code failed: '$token_url' - ".print_r($post_fields, true));
 		
-	echo $token_request_body;
+	//echo $token_request_body;
 ?>

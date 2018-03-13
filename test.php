@@ -26,6 +26,8 @@ $c = array(
 $jsonC = (json_encode($c));	
 $payload = base64_encode($jsonC);
 
+$headload = $header . "." . $payload;
+
 // LOAD YOUR PRIVATE KEY FROM A FILE - BE CAREFUL TO PROTECT IT USING
 // FILE PERMISSIONS!
 $private_key = file_get_contents("server.key");
@@ -37,12 +39,12 @@ $s = "";
 $algo = "SHA256";
 
 // Sign the header and payload
-openssl_sign($header.'.'.$payload, $s, $private_key, $algo);
+openssl_sign($headload, $s, $private_key, $algo);
 
 // Base64 encode the result
 $secret = base64_encode($s);
 
-$token = $header . '.' . $payload . '.' . $secret;
+$token = $headload . "." . $secret;
 
 $token_url = LOGIN_BASE_URL.'/services/oauth2/token';
 

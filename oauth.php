@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+session_start();
 $auth_url = LOGIN_URI
 
         . "/services/oauth2/authorize?response_type=code&client_id="

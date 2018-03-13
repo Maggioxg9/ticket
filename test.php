@@ -17,9 +17,9 @@ $exp = strval(time() + (5 * 60));
 
 //Create JSon Claim/Payload
 $c = array(
-	"iss" => CONSUMER_KEY, 
+	"iss" => "3MVG9d3kx8wbPieHPn2sTuBe8hPeE4Q4EFvpYEZnm5eue5EZcTt6mKAxQWkxxFumDJAt2rDz0hOu.P0nL70hC", 
 	"sub" => "zacharym@accelentertainment.com", 
-	"aud" => LOGIN_BASE_URL, 
+	"aud" => "https://test.salesforce.com", 
 	"exp" => $exp
 );
 

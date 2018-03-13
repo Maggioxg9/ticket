@@ -5,13 +5,17 @@ define('CONSUMER_KEY', "3MVG9d3kx8wbPieHPn2sTuBe8hPeE4Q4EFvpYEZnm5eue5EZcTt6mKAx
 define('CONSUMER_SECRET', "1358863352701655057");
 define('LOGIN_BASE_URL', "https://test.salesforce.com");
 
+function base64url_encode($data) { 
+  return rtrim(strtr(base64_encode($data), '+/', '-_'), '='); 
+} 
+
 //Json Header
 $h = array(
 	"alg" => "RS256"	
 );
 
 $jsonH = json_encode(($h));	
-$header = base64_encode($jsonH); 
+$header = base64url_encode($jsonH); 
 
 $exp = strval(time() + (5 * 60));
 
@@ -24,7 +28,7 @@ $c = array(
 );
 
 $jsonC = (json_encode($c));	
-$payload = base64_encode($jsonC);
+$payload = base64url_encode($jsonC);
 
 $headload = $header . "." . $payload;
 
@@ -42,11 +46,10 @@ $algo = "SHA256";
 openssl_sign($headload, $s, $private_key, $algo);
 
 // Base64 encode the result
-$secret = base64_encode($s);
+$secret = base64url_encode($s);
 
 $token = $headload . "." . $secret;
 
-echo $token;
 
 $token_url = LOGIN_BASE_URL.'/services/oauth2/token';
 
@@ -67,5 +70,5 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $token_request_body = curl_exec($ch) 
         or die("Call to get token from code failed: '$token_url' - ".print_r($post_fields, true));
 		
-	//echo $token_request_body;
+	echo $token_request_body;
 ?>

@@ -63,5 +63,5 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $token_request_body = curl_exec($ch) 
         or die("Call to get token from code failed: '$token_url' - ".print_r($post_fields, true));
 		
-		
+	echo $token_request_body;
 ?>

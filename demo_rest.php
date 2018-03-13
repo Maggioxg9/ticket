@@ -190,7 +190,9 @@ function delete_account($id, $instance_url, $access_token) {
 			$phone = "34353534353";
 			$ticketnum = "123245353453";
 
-            create_case($name, $phone, $ticketnum, $instance_url, $access_token);
+			echo $_POST;
+			echo $_SESSION;
+            //create_case($name, $phone, $ticketnum, $instance_url, $access_token);
 
             //$id = create_account("My New Org", $instance_url, $access_token);
 

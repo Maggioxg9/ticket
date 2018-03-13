@@ -186,13 +186,11 @@ function delete_account($id, $instance_url, $access_token) {
             if (!isset($instance_url) || $instance_url == "") {
                 die("Error - instance URL missing from session!");
             }
-			$name = "Mary Ann";
-			$phone = "34353534353";
-			$ticketnum = "123245353453";
-
-			var_dump($_POST);
-			var_dump($_SESSION);
-            //create_case($name, $phone, $ticketnum, $instance_url, $access_token);
+			$name = $_SESSION['name'];
+			$phone = $_SESSION['phone'];
+			$ticketnum = $_SESSION['ticketnum'];
+			
+            create_case($name, $phone, $ticketnum, $instance_url, $access_token);
 
             //$id = create_account("My New Org", $instance_url, $access_token);
 

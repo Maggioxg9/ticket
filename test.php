@@ -1,9 +1,9 @@
 <?php
 
 // You need to set these three to the values for your own application
-define('CONSUMER_KEY', '3MVG9d3kx8wbPieHPn2sTuBe8hPeE4Q4EFvpYEZnm5eue5EZcTt6mKAxQWkxxFumDJAt2rDz0hOu.P0nL70hC');
-define('CONSUMER_SECRET', '1358863352701655057');
-define('LOGIN_BASE_URL', 'https://test.salesforce.com');
+define('CONSUMER_KEY', "3MVG9d3kx8wbPieHPn2sTuBe8hPeE4Q4EFvpYEZnm5eue5EZcTt6mKAxQWkxxFumDJAt2rDz0hOu.P0nL70hC");
+define('CONSUMER_SECRET', "1358863352701655057");
+define('LOGIN_BASE_URL', "https://test.salesforce.com");
 
 //Json Header
 $h = array(

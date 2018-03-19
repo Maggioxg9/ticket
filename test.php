@@ -14,7 +14,7 @@ $h = array(
 	"alg" => "RS256"	
 );
 
-echo "<b>Using ALG:RS256</b>";
+echo "<b>Using" . "<span style='color:red'>" . "ALG:RS256</b>" . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";

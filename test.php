@@ -23,7 +23,7 @@ $jsonH = json_encode(($h));
 
 $header = base64url_encode($jsonH); 
 
-echo "<b>Encoding ALG:256 as payload header: </b>" . $header . "\n";
+echo "<b>Encoding ALG:256 as payload header: </b>" . "<span style='color:red'>" .$header . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
@@ -115,6 +115,5 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	echo "<br/>";
 	echo "<b>Salesforce access token received: </b>" . $token_request_body ."\n";
 	echo "<br/>";
-	echo "↓";
 	echo "<br/>";
 ?>

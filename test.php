@@ -22,7 +22,7 @@ $jsonH = json_encode(($h));
 
 $header = base64url_encode($jsonH); 
 
-echo "Encoding ALG:256 as payload header:" . $header . "\n";
+echo "<b>Encoding ALG:256 as payload header: </b>" . $header . "\n";
 echo "<br/>";
 echo "<br/>";
 

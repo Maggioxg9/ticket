@@ -14,13 +14,17 @@ $h = array(
 	"alg" => "RS256"	
 );
 
-echo "Using ALG:RS256\n";
+echo "Using ALG:RS256";
+echo "<br/>";
+echo "<br/>";
 
 $jsonH = json_encode(($h));	
 
 $header = base64url_encode($jsonH); 
 
 echo "Encoding ALG:256 as payload header:" . $header . "\n";
+echo "<br/>";
+echo "<br/>";
 
 $exp = strval(time() + (5 * 60));
 
@@ -36,12 +40,18 @@ $jsonC = (json_encode($c));
 
 echo "Creating Salesforce Claim Payload: ". $c . "\n";
 $payload = base64url_encode($jsonC);
+echo "<br/>";
+echo "<br/>";
 
 echo "Encoding Saleforce Claim Payload: " . $payload . "\n";
+echo "<br/>";
+echo "<br/>";
 
 $headload = $header . "." . $payload;
 
 echo "Encoded Header + Payload created: " . $headload . "\n";
+echo "<br/>";
+echo "<br/>";
 
 // LOAD YOUR PRIVATE KEY FROM A FILE - BE CAREFUL TO PROTECT IT USING
 // FILE PERMISSIONS!
@@ -58,13 +68,19 @@ $algo = "SHA256";
 openssl_sign($headload, $s, $private_key, $algo);
 
 echo "Open Cryptographic Private Key from Server: " . $s . "\n";
+echo "<br/>";
+echo "<br/>";
 // Base64 encode the result
 $secret = base64url_encode($s);
 echo "Encoded Private key using RSA with SHA256 cryptography: " . $secret . "\n";
+echo "<br/>";
+echo "<br/>";
 
 $token = $headload . "." . $secret;
 
 echo "Salesforce Authentication token created via OAuth 2.0 JWT Bearer Token Flow: " . $token . "\n";
+echo "<br/>";
+echo "<br/>";
 
 
 $token_url = LOGIN_BASE_URL.'/services/oauth2/token';
@@ -86,5 +102,9 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $token_request_body = curl_exec($ch) 
         or die("Call to get token from code failed: '$token_url' - ".print_r($post_fields, true));
 	echo "Success! Reading server response token..\n";
+	echo "<br/>";
+	echo "<br/>";
 	echo "Salesforce access token received: " . $token_request_body ."\n";
+	echo "<br/>";
+	echo "<br/>";
 ?>

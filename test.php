@@ -72,7 +72,7 @@ $algo = "SHA256";
 // Sign the header and payload
 openssl_sign($headload, $s, $private_key, $algo);
 
-echo "<b>Open Cryptographic Private Key from Server: </b>" . "<span style='color:red'>" .$s . "</span>";
+echo "<b>Open Cryptographic Private Key from Server: </b>" . "<span style='color:red'>" . $private_key . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";

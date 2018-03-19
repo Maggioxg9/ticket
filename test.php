@@ -38,7 +38,7 @@ $c = array(
 
 $jsonC = (json_encode($c));	
 
-echo "<b>Creating Salesforce Claim Payload: </b>". $c . "\n";
+echo "<b>Creating Salesforce Claim Payload: </b>". $jsonC . "\n";
 $payload = base64url_encode($jsonC);
 echo "<br/>";
 echo "<br/>";

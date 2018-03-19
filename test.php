@@ -14,7 +14,7 @@ $h = array(
 	"alg" => "RS256"	
 );
 
-echo "Using ALG:RS256";
+echo "<b>Using ALG:RS256</b>";
 echo "<br/>";
 echo "<br/>";
 
@@ -38,18 +38,18 @@ $c = array(
 
 $jsonC = (json_encode($c));	
 
-echo "Creating Salesforce Claim Payload: ". $c . "\n";
+echo "<b>Creating Salesforce Claim Payload: </b>". $c . "\n";
 $payload = base64url_encode($jsonC);
 echo "<br/>";
 echo "<br/>";
 
-echo "Encoding Saleforce Claim Payload: " . $payload . "\n";
+echo "<b>Encoding Saleforce Claim Payload: </b>" . $payload . "\n";
 echo "<br/>";
 echo "<br/>";
 
 $headload = $header . "." . $payload;
 
-echo "Encoded Header + Payload created: " . $headload . "\n";
+echo "<b>Encoded Header + Payload created: </b>" . $headload . "\n";
 echo "<br/>";
 echo "<br/>";
 
@@ -67,18 +67,18 @@ $algo = "SHA256";
 // Sign the header and payload
 openssl_sign($headload, $s, $private_key, $algo);
 
-echo "Open Cryptographic Private Key from Server: " . $s . "\n";
+echo "<b>Open Cryptographic Private Key from Server: </b>" . $s . "\n";
 echo "<br/>";
 echo "<br/>";
 // Base64 encode the result
 $secret = base64url_encode($s);
-echo "Encoded Private key using RSA with SHA256 cryptography: " . $secret . "\n";
+echo "<b>Encoded Private key using RSA with SHA256 cryptography: </b>" . $secret . "\n";
 echo "<br/>";
 echo "<br/>";
 
 $token = $headload . "." . $secret;
 
-echo "Salesforce Authentication token created via OAuth 2.0 JWT Bearer Token Flow: " . $token . "\n";
+echo "<b>Salesforce Authentication token created via OAuth 2.0 JWT Bearer Token Flow: </b>" . $token . "\n";
 echo "<br/>";
 echo "<br/>";
 
@@ -101,10 +101,10 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 // Make the API call, and then extract the information from the response
     $token_request_body = curl_exec($ch) 
         or die("Call to get token from code failed: '$token_url' - ".print_r($post_fields, true));
-	echo "Success! Reading server response token..\n";
+	echo "<b>Success! Reading server response token..</b>\n";
 	echo "<br/>";
 	echo "<br/>";
-	echo "Salesforce access token received: " . $token_request_body ."\n";
+	echo "<b>Salesforce access token received: </b>" . $token_request_body ."\n";
 	echo "<br/>";
 	echo "<br/>";
 ?>

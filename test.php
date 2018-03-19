@@ -40,20 +40,20 @@ $c = array(
 
 $jsonC = (json_encode($c));	
 
-echo "<b>Creating Salesforce Claim Payload: </b>". $jsonC . "\n";
+echo "<b>Creating Salesforce Claim Payload: </b>". "<span style='color:red'>" . $jsonC . "</span>";
 $payload = base64url_encode($jsonC);
 echo "<br/>";
 echo "↓";
 echo "<br/>";
 
-echo "<b>Encoding Saleforce Claim Payload: </b>" . $payload . "\n";
+echo "<b>Encoding Saleforce Claim Payload: </b>" ."<span style='color:red'>" . $payload . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
 
 $headload = $header . "." . $payload;
 
-echo "<b>Encoded Header + Payload created: </b>" . $headload . "\n";
+echo "<b>Encoded Header + Payload created: </b>" . "<span style='color:red'>" .$headload . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
@@ -72,20 +72,20 @@ $algo = "SHA256";
 // Sign the header and payload
 openssl_sign($headload, $s, $private_key, $algo);
 
-echo "<b>Open Cryptographic Private Key from Server: </b>" . $s . "\n";
+echo "<b>Open Cryptographic Private Key from Server: </b>" . "<span style='color:red'>" .$s . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
 // Base64 encode the result
 $secret = base64url_encode($s);
-echo "<b>Encoded Private key using RSA with SHA256 cryptography: </b>" . $secret . "\n";
+echo "<b>Encoded Private key using RSA with SHA256 cryptography: </b>" . "<span style='color:red'>" .$secret . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
 
 $token = $headload . "." . $secret;
 
-echo "<b>Salesforce Authentication token created via OAuth 2.0 JWT Bearer Token Flow: </b>" . $token . "\n";
+echo "<b>Salesforce Authentication token created via OAuth 2.0 JWT Bearer Token Flow: </b>" . "<span style='color:red'>" .$token . "</span>";
 echo "<br/>";
 echo "↓";
 echo "<br/>";
@@ -113,7 +113,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	echo "<br/>";
 	echo "↓";
 	echo "<br/>";
-	echo "<b>Salesforce access token received: </b>" . $token_request_body ."\n";
+	echo "<b>Salesforce access token received: </b>" . "<span style='color:red'>" .$token_request_body ."</span>";
 	echo "<br/>";
 	echo "<br/>";
 ?>
